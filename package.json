@@ -1,0 +1,27 @@
+{
+  "name": "dsh-wechat-notify",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness (dsh) plugin that registers a wechat_notify tool so agents can send WeChat notifications through a local ClawBot channel.",
+  "license": "MIT",
+  "author": "往事随风K",
+  "type": "module",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "wechat",
+    "notify",
+    "tool",
+    "clawbot"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "files": [
+    "src",
+    "cordis.patch.example.yml",
+    "README.md",
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,11 @@
+# 挂载示例：把本插件插入 dsh 的组合树（配合 `dsh web --patch <本文件>`）。
+# 使用前把下面的占位符路径替换为插件入口 ts 文件的真实绝对路径。
+#
+# 路径规则（dsh 的 loader 用 Node ESM 解析插件入口）：
+#   - Windows：绝对路径必须写成 file:/// URL。例如
+#       file:///D:/path/to/dsh/plugins/wechat-notify/src/index.ts
+#     （写成 `D:\...` 或 `D:/...` 会被当成 `d:` 协议而报 ERR_UNSUPPORTED_ESM_URL_SCHEME）。
+#   - Linux/macOS：直接写普通绝对路径即可，例如 /path/to/dsh/plugins/wechat-notify/src/index.ts
+- insert:
+    - id: wechat-notify
+      name: 'file:///ABSOLUTE/PATH/TO/wechat-notify/src/index.ts'
