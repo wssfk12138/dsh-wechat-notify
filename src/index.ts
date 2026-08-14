@@ -93,7 +93,8 @@ export function apply(ctx: Context) {
         const qrcode = qr.qrcode
         mkdirSync(join(homedir(), '.wx-ai-bridge'), { recursive: true })
         writeFileSync(PENDING_QR_FILE, JSON.stringify({ qrcode, url, createdAt: Date.now() }), 'utf8')
-        return `微信登录二维码已获取（约 5 分钟内有效）。请在微信中完成扫码登录：\n1) 把下面的链接发到微信任意聊天（如“文件传输助手”）里，点开即可进入登录确认页；\n2) 或用任意二维码工具把该链接生成二维码，再用微信扫码。\n\n链接：\n${url}\n\n确认登录后，请让 agent 调用 wechat_login_confirm 完成登录凭据保存。`
+        const qrImgUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(url)}`
+        return `微信登录二维码已生成（约 5 分钟内有效），请用微信扫描下方二维码登录：\n\n![微信扫码登录](${qrImgUrl})\n\n若二维码无法显示，可把下面的链接发到微信任意聊天（如“文件传输助手”）里点开登录：\n${url}\n\n确认登录后，请让 agent 调用 wechat_login_confirm 完成登录凭据保存。`
       } catch (error) {
         return `获取微信登录二维码失败：${describeFailure(error)}`
       }

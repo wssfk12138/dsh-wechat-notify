@@ -111,12 +111,12 @@ wechat_notify(message="任务已完成，结果如下：……")
 若 ClawBot 还没登录微信（全新环境或登录已过期），让 agent 依次调用：
 
 ```text
-wechat_login()          # 获取登录二维码，返回一个微信 liteapp 链接
+wechat_login()          # 生成可扫的登录二维码（直接显示在 dsh 页面）
 wechat_login_confirm()  # 你扫码确认后，保存登录凭据
 ```
 
-具体流程：`wechat_login` 会返回一个 `https://liteapp.weixin.qq.com/q/...` 链接——把它发到微信
-任意聊天里点开（或转成二维码再扫），手机上确认登录后，再让 agent 调用 `wechat_login_confirm`
+具体流程：`wechat_login` 会返回一张**可扫的二维码图片**（并附 liteapp 链接兜底）——直接用手机
+微信「扫一扫」扫 dsh 页面上的二维码，手机上确认登录后，再让 agent 调用 `wechat_login_confirm`
 即可完成连接；之后 `wechat_notify` 就能正常发通知。
 
 ## 🔧 工作原理（通俗版）
