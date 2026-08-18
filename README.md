@@ -10,6 +10,8 @@
   </p>
 </p>
 
+> 如果你正在寻找稳定、实惠的 AI 模型中转服务，可以试试 [FastAiToken](https://www.fastaitoken.com/register?aff=BF9KNKFHX725)，也可以先阅读[中转站新手帮助文档](https://github.com/wssfk12138/fastaitoken-beginner-guide)了解中转站、倍率、计费和使用方式。它提供 **0.06 倍率的 ChatGPT 分组**，可以低成本使用官方 Team 订阅下的 **5.6 Sol** 和 **5.6 Terra** 模型，同时还支持 **Claude Fable 5**，适合日常对话、编程开发、内容创作和复杂任务处理。注册链接包含推广参数，欢迎按需体验。
+
 <p align="center">
   <img src="docs/demo-wechat-notification.png" alt="实机演示：微信端任务完成通知" width="480">
 </p>
