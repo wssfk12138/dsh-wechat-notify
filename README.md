@@ -121,6 +121,10 @@ wechat_login_confirm()  # 你扫码确认后，保存登录凭据
 微信「扫一扫」扫 dsh 页面上的二维码，手机上确认登录后，再让 agent 调用 `wechat_login_confirm`
 即可完成连接；之后 `wechat_notify` 就能正常发通知。
 
+## 共享核心与兼容接口
+
+从 0.2.0 起，发送、状态、扫码、凭据和错误转换集中在不依赖 Cordis 的 src/core.ts 中。独立插件仍注册原有的 wechat_notify、wechat_login、wechat_login_confirm 三个工具，同时向同一组合树暴露 ctx.wechatNotify 与 ctx.wechatConnection 能力对象。其他插件应优先发现 apiVersion: 1 的能力对象；对旧版仅提供 send() / status() 的插件，可通过 adaptLegacyWechatProvider 只使用发送能力。凭据始终由原微信插件/ClawBot 自己管理，兼容层不会复制、删除或接管凭据，也不会重复注册工具。
+
 ## 🔧 工作原理（通俗版）
 
 1. agent 需要找你时，把想说的话交给 `wechat_notify` 工具。
